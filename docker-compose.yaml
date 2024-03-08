@@ -1,9 +1,9 @@
 version: '3'
 
 services:
-  mariadb_prueba:
+  prueba_mariadb:
     image: mariadb:latest
-    container_name: mariadb_prueba
+    container_name: prueba_mariadb
     environment:
       - MARIADB_USER=crud
       - MARIADB_PASSWORD=crud
@@ -12,12 +12,12 @@ services:
     volumes:
       - mariadb_data_prueba:/var/lib/mysql
 
-  web_prueba:
+  prueba_web:
     image: pepepfoter15/prueba:v1
-    container_name: web_prueba
+    container_name: prueba_web
     environment:
       - DB_NAME=crud
-      - DB_HOST=mariadb_prueba
+      - DB_HOST=prueba_mariadb
       - DB_USER=crud
       - DB_PASSWORD=crud
     ports:
