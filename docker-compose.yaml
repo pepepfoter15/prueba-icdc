@@ -1,0 +1,31 @@
+version: '3'
+
+services:
+  mariadb:
+    image: mariadb:latest
+    container_name: mariadb
+    environment:
+      - MARIADB_USER=crud
+      - MARIADB_PASSWORD=crud
+      - MARIADB_DATABASE=crud
+      - MARIADB_ROOT_PASSWORD=root
+    volumes:
+      - mariadb_data:/var/lib/mysql
+
+  web:
+    image: pepepfoter15/prueba:v1
+    container_name: web
+    environment:
+      - DB_NAME=crud
+      - DB_HOST=mariadb
+      - DB_USER=crud
+      - DB_PASSWORD=crud
+    ports:
+      - "8083:80"
+    volumes:
+      - web_logs:/var/log/web
+
+volumes:
+  mariadb_data:
+    driver: local
+  web_logs:
