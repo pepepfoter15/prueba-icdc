@@ -16,7 +16,7 @@ EXPOSE 80
 
 CMD apache2ctl -D FOREGROUND
 
-ENV DB_HOST mariadb
+ENV DB_HOST mariadb_p
 ENV DB_NAME crud
 ENV DB_USER crud
 ENV DB_PASSWORD crud
