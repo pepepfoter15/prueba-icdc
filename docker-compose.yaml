@@ -3,7 +3,7 @@ version: '3'
 services:
   mariadb:
     image: mariadb:latest
-    container_name: mariadb
+    container_name: mariadb_prueba
     environment:
       - MARIADB_USER=crud
       - MARIADB_PASSWORD=crud
@@ -14,7 +14,7 @@ services:
 
   web:
     image: pepepfoter15/prueba:v1
-    container_name: web
+    container_name: web_prueba
     environment:
       - DB_NAME=crud
       - DB_HOST=mariadb
