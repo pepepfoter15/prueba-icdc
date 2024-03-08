@@ -21,7 +21,7 @@ services:
       - DB_USER=crud
       - DB_PASSWORD=crud
     ports:
-      - "8083:80"
+      - "8084:80"
     volumes:
       - web_logs_prueba:/var/log/web
 
