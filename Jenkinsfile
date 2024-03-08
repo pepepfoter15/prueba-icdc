@@ -1,13 +1,8 @@
 pipeline {
     agent none
     stages {
-        stage ('Test de django') { 
-            agent { 
-                docker { 
-                    image 'python:3'
-                    args '-u root:root'
-                }
-            }
+        stage ('Clonacion') { 
+            agent any
             stages {
                 stage('Clonacion del repo') {
                     steps {
@@ -42,7 +37,7 @@ pipeline {
             agent any 
             steps{
                 sshagent(credentials : ['pepe']) {
-                    sh 'ssh -o StrictHostKeyChecking=no yoshi@yoshi.pepepfoter15.es wget https://raw.githubusercontent.com/pepepfoter15/ic-imagen-python-vps/main/docker-compose.yaml -O docker-compose.yaml'
+                    sh 'ssh -o StrictHostKeyChecking=no yoshi@yoshi.pepepfoter15.es wget https://raw.githubusercontent.com/pepepfoter15/prueba-icdc/main/docker-compose.yaml -O docker-compose.yaml'
                     sh 'ssh -o StrictHostKeyChecking=no yoshi@yoshi.pepepfoter15.es docker compose up -d --force-recreate'
                 }
             }
